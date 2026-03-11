@@ -5,8 +5,10 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   server: {
+    host: true,
     port: 3000,
-    open: true,
+    open: false,
+    allowedHosts: ['mirofish.tsunagu-sep.org'],
     proxy: {
       '/api': {
         target: 'http://localhost:5001',
