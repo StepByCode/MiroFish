@@ -168,13 +168,15 @@ npm run frontend  # 仅启动前端
 # 1. 配置环境变量（同源码部署）
 cp .env.example .env
 
-# 2. 拉取镜像并启动
+# 2. 构建镜像并启动
 docker compose up -d
 ```
 
 默认会读取根目录下的 `.env`，并映射端口 `3000（前端）/5001（后端）`
 
-> 在 `docker-compose.yml` 中已通过注释提供加速镜像地址，可按需替换
+`VITE_ALLOWED_HOSTS` 默认是 `all`，适合 Coolify / Nginx / Caddy 这类反向代理场景；`VITE_API_BASE_URL` 默认留空，前端会走同域 `/api`
+
+> 在 `docker-compose.yml` 中保留了预构建镜像地址注释，如需改回拉取镜像模式可自行切换
 
 ## 📬 更多交流
 

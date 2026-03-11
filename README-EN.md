@@ -168,13 +168,15 @@ npm run frontend  # Start frontend only
 # 1. Configure environment variables (same as source deployment)
 cp .env.example .env
 
-# 2. Pull image and start
+# 2. Build and start
 docker compose up -d
 ```
 
 Reads `.env` from root directory by default, maps ports `3000 (frontend) / 5001 (backend)`
 
-> Mirror address for faster pulling is provided as comments in `docker-compose.yml`, replace if needed.
+`VITE_ALLOWED_HOSTS` defaults to `all`, which works behind reverse proxies such as Coolify; `VITE_API_BASE_URL` is empty by default so the frontend uses same-origin `/api`.
+
+> Prebuilt image references are still kept as comments in `docker-compose.yml` if you want to switch back to image-based deployment.
 
 ## 📬 Join the Conversation
 
